@@ -1,0 +1,18 @@
+object oriented language
+servers:
+server1
+server2....server100..each server has name, cpu, memory, status
+
+def server1():
+     name="server1"
+     cpu=60
+     memory=80
+     status="healthy"
+
+server1()
+
+class of servers
+attributes: name, cpu, memory, status
+
+method: check_status, check_cpu, check_memory, check_name
+
