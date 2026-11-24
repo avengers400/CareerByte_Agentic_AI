@@ -22,8 +22,20 @@ python .\1-first-file.py
 
 The input examples pause for responses in the terminal. In the mini project, CPU and memory are converted to floating-point numbers; enter numeric values such as `72` or `72.5`.
 
-## Concepts to notice
+## Concepts explained
 
-- `input()` returns text. Convert it explicitly when arithmetic or numeric comparison is needed.
-- A value's type affects the operations available to it; for example, `"75.5"` is a string until converted.
-- The mini project compares input with thresholds of 80% CPU and 85% memory. It reports whether each limit was exceeded; it does not validate that values are within the 0–100 range.
+### Values, variables, and types
+
+A **value** is a piece of data used by a program. A **variable** is a name that refers to a value, such as `server_name = "newgen-server"`. Python associates every value with a type. The examples include strings (`str`) for names and text, integers (`int`) for whole-number counts, floating-point numbers (`float`) for measurements with decimals, and Booleans (`bool`) for `True` or `False` states. `type(value)` reveals the value's current type.
+
+### Operators and conversion
+
+Operators perform work on values. Arithmetic operators calculate, while comparison operators such as `>`, `==`, and `!=` produce Boolean results. A number written inside quotes is still text: `"60" + 10` is not valid numeric addition. Convert it first with `int("60")` or `float("60.5")`, depending on whether a fractional value is possible.
+
+### Text operations and formatted strings
+
+String methods such as `.lower()` and `.upper()` return text in a changed case. The `in` operator checks whether a substring occurs inside another string. An f-string, written like `f"Server {name}"`, inserts the current value of an expression into text and is useful for constructing readable reports.
+
+### Terminal input and the mini project
+
+`input()` displays a prompt and returns the user's response as a string. Convert numeric responses before comparing them to numeric thresholds. The mini project reads server name, CPU, and memory, then uses comparisons to report whether CPU is over 80% or memory is over 85%. These are simple threshold checks, not full validation: for example, the script does not reject negative usage or a value above 100%.

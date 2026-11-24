@@ -28,9 +28,20 @@ python .\write-text.py
 
 The writer examples modify `server1.json` and `write-sample.txt` respectively. Review their contents before and after execution.
 
-## Concepts to notice
+## Concepts explained
 
-- `with open(..., encoding="utf-8")` closes a file automatically when the block ends.
-- `json.load()` reads and parses JSON directly from an open file; `json.dump()` writes a Python value as JSON.
-- `json.dump(..., indent=4)` formats the output for readability.
-- Opening a file with mode `"w"` replaces existing file contents. Use that mode carefully when practicing.
+### Opening and closing files
+
+`open(path, mode, encoding="utf-8")` creates a file object for reading or writing. The `with` statement is a context manager: it closes the file automatically when its indented block ends, even if an error occurs. A relative path is interpreted from the process's current working directory; an absolute path specifies a location from the filesystem root.
+
+### Reading and writing text
+
+The `"r"` mode opens an existing file for reading. Calling `.read()` returns its contents as a string. The `"w"` mode opens a file for writing and replaces existing contents (or creates the file if it does not exist). Calling `.write(text)` writes a string; newline characters such as `\n` separate lines.
+
+### JSON and Python values
+
+JSON represents structured values as text, using objects, arrays, strings, numbers, Booleans, and `null`. Python's `json` module translates between JSON and corresponding Python values. `json.load(file)` parses JSON from an open file; `json.dump(value, file)` serializes a value to an open file. `indent` controls whitespace for readability, not the underlying data.
+
+### Side effects and paths
+
+Reading depends on the path resolving to an existing file and, for JSON, valid JSON content. Writing changes files on disk, so the two writer examples overwrite their targets. The hard-coded paths noted above are specific to one machine; relative paths or paths assembled from the script's location make examples more portable.

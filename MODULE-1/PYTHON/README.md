@@ -11,6 +11,17 @@ This folder contains the Python lessons for Module 1. Its scripts use simple ser
 5. [file-reading-writing](file-reading-writing/README.md) — reading and writing text and JSON files.
 6. [oops](oops/README.md) — object-oriented programming concepts.
 
+## Concepts covered
+
+The course begins with Python's basic building blocks and gradually combines them into larger ideas:
+
+- **Variables and types** give names to values and describe whether information is text (`str`), a whole number (`int`), a decimal (`float`), or a Boolean (`bool`).
+- **Operators and expressions** calculate results or compare values. Converting input to a numeric type is necessary before doing numeric calculations.
+- **Conditions and iteration** control which statements run and how often; lists and other collections provide values to process.
+- **Functions** make behavior reusable. Arguments pass information into a function, and return values pass results back.
+- **Exceptions and file operations** support handling runtime problems and exchanging information with files. JSON provides a text format for structured data.
+- **Object-oriented programming** models entities as objects that combine attributes (data) with methods (behavior), with inheritance and method overriding as reuse mechanisms.
+
 ## Requirements and running scripts
 
 - Install Python 3 and make the `python` command available in a terminal.

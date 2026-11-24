@@ -25,11 +25,28 @@ python .\1-first_class.py
 
 The examples use only Python's standard language features and require no extra packages.
 
-## Concepts to notice
+## Concepts explained
 
-- A class describes shared structure and behavior; an object is an instance of that class.
-- `self` refers to the instance whose method is being called.
-- Instance attributes belong to an individual object; class attributes are shared through the class.
-- Inheritance allows a subclass to reuse and extend a base class.
-- An overridden method provides subclass-specific behavior with the same method name.
-- `@staticmethod` does not receive an implicit instance or class argument; `@classmethod` receives the class as `cls`.
+### Classes, objects, and attributes
+
+A **class** defines a type by grouping data and operations that belong together. An **object** (or instance) is a concrete value created from that class. In the server examples, a server object can hold attributes such as its name and CPU usage and provide methods such as a health check. Attributes are values associated with an object or class.
+
+### Initializers and `self`
+
+`__init__` is the initializer Python calls after creating a new instance. It commonly assigns instance-specific values, such as `self.name = name`. The parameter `self` refers to the particular instance receiving the method call, which lets the method read or update that instance's attributes. It is supplied automatically when an instance method is called.
+
+### Instance attributes and class attributes
+
+An **instance attribute** belongs to one object, so different instances can hold different values. A **class attribute** is defined on the class and is shared unless an instance overrides it with an attribute of the same name. The student example's `school` value is a class attribute.
+
+### Inheritance and overriding
+
+Inheritance defines a subclass based on an existing class. The subclass can reuse parent behavior, add its own attributes and methods, or customize behavior. `super()` lets the subclass call the parent's implementation; the EC2 server example uses it to initialize the inherited name and CPU attributes. **Method overriding** occurs when a subclass defines a method with the same name as one inherited from its parent; calls on subclass instances use the subclass implementation.
+
+### Instance, static, and class methods
+
+- An **instance method** receives `self` and can use or modify data belonging to that object.
+- A **static method**, marked with `@staticmethod`, receives neither `self` nor `cls` automatically. It is placed in a class because it is related conceptually, not because it needs class or instance state.
+- A **class method**, marked with `@classmethod`, receives the class as `cls`. It can read or update class-level data and works with subclasses through the class used to call it.
+
+These method forms help communicate what state an operation needs. They do not make attributes private; Python uses naming conventions rather than enforced access modifiers for most ordinary attributes.

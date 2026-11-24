@@ -23,10 +23,24 @@ python .\1-func-basics.py
 
 Each file is independent and uses only Python's standard library.
 
-## Concepts to notice
+## Concepts explained
 
-- Parameters are names a function receives; `return` sends a result back to its caller.
-- `*args` gathers extra positional arguments, while `**kwargs` gathers extra named arguments.
-- A lambda is a concise expression for a small function; use a named function when the logic needs more explanation.
-- JSON is a text representation for data exchange. `json.dumps()` produces JSON text, and `json.loads()` parses JSON text.
-- The docstring example is intentionally simple; its annotation and conditional illustrate syntax rather than comprehensive input validation.
+### Defining and calling functions
+
+A function is a named, reusable block of code. A `def` statement defines it; calling its name runs its body. **Parameters** are the names in the definition, and **arguments** are the values supplied when calling it. A function can use `return` to send a result to its caller. If it only prints a value, that output is displayed but is not automatically returned for later calculations.
+
+### Flexible arguments
+
+The `*servers` syntax collects any extra positional arguments into a tuple. The `**servers` syntax collects named arguments into a dictionary. These patterns are useful when the number or names of inputs may vary; the examples iterate over the collected values.
+
+### Lambda and higher-order functions
+
+A lambda is a small anonymous function written as an expression, for example `lambda x: x**2`. It is often useful as a short callback or sort key. A **higher-order function** accepts another function as an argument or returns a function. The monitor example accepts a check function and applies it to a value, separating the operation from the specific rule.
+
+### Docstrings and annotations
+
+A **docstring** is a string placed at the start of a function (or other definition) to describe its purpose; documentation tools can expose it. A **type annotation** such as `-> float` communicates an intended input or output type to readers and tools. Python does not automatically enforce that annotation at runtime. The current docstring example places its documentation string inside a conditional rather than at the start of the function, so it does not serve as the function's official docstring.
+
+### JSON
+
+JSON is a text format for exchanging structured data. Python dictionaries and lists can represent JSON objects and arrays. `json.dumps()` converts a Python value to JSON text; `json.loads()` parses JSON text back into Python values. For file objects, the corresponding functions are `json.dump()` and `json.load()`, shown in the [file reading and writing guide](../file-reading-writing/README.md).
