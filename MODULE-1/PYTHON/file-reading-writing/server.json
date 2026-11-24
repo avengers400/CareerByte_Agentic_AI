@@ -1,0 +1,20 @@
+{
+    "LogicalID": {
+      "Type": "AWS::AccountAccess::Application",
+      "Properties": {
+        "IdentitySource": {
+          "IdentityCenter": {
+            "ApplicationArn": "String",
+            "InstanceArn": "String"
+          }
+        },
+        "Tags": [
+          {
+            "Key": "String",
+            "Value": "String"
+          }
+        ]
+      }
+    }
+}
+
